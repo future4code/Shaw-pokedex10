@@ -1,10 +1,10 @@
 import React from "react";
 
-export const PokemonDetail =()=>{
+export function PokemonDetail(){
 
     return(
-        <>
-        
-        </>
+        <div>
+            oi
+        </div>
     )
 }

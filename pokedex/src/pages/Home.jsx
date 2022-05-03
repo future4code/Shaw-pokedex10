@@ -1,13 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { goToPokedex } from '../route/cordinator';
+import Header from "../Components/header/Header"
 
-export const Home =()=>{
-    const navigate = useNavigate()
+export function Home(){
     return(
-        <>
-            <button onClick={()=>goToPokedex(navigate) }>Pokedex</button>
-            
-        </>
+        <div>
+            <Header/>
+            <p>Home</p>
+        </div>
     )
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { goToHome } from "../route/cordinator";
 import { useNavigate } from 'react-router-dom';
 
-export const Pokedex =()=>{
+export function Pokedex (){
     const navigate = useNavigate()
 
     return(
