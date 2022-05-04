@@ -1,12 +1,8 @@
 import React,{useState,useEffect}from "react";
 import Header from "../Components/header/Header"
-<<<<<<< HEAD
 import { PokemonDetail } from "./PokemonDetail";
 import axios from 'axios'
 import { CardPokemons } from '../Components/CardPokemons';
-=======
-import Footer from "../Components/footer/Footer"
->>>>>>> b2bd6ae81de48a319e4d1bdb376ac712d652c8ef
 
 export function Home(){
     
@@ -43,7 +39,6 @@ export function Home(){
         <>
             <Header/>
             <p>Home</p>
-<<<<<<< HEAD
            <div className="container">
                 <div className="left-content">
                     <CardPokemons pokemon={pokeData} loading={loading} infoPokemon={poke=>setPokeDex(poke)} />
@@ -66,10 +61,5 @@ export function Home(){
            </div>
             {/* <button onClick={()=>goToPokedex(navigate) }>Pokedex</button> */}
         </>
-=======
-
-            <Footer/>
-        </div>
->>>>>>> b2bd6ae81de48a319e4d1bdb376ac712d652c8ef
     )
 }
