@@ -7,7 +7,7 @@ function Header(){
         <MainContainer>
             <DivOne>
                 <DivLeft>
-                    <button>Ver Pokedex</button>
+                    <button >Ver Pokedex</button>
                 </DivLeft>
                 <DivMid>
                     <img src={Logo}/>
