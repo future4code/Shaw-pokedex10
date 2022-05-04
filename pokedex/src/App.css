@@ -1,38 +1,94 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    background-color:#f0f6f8;
+}
+.container{
+    width: 90%;
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+
+}
+.left-content, .right-content{
+    flex-basis: 50%;
+}
+.left-content{
+    display: grid;
+     grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;  
+}
+.card{
+    width: 300px;
+    background-color: #f0f6f8;
+    border-radius: 1rem;
+    box-shadow: 0 5px 5px rgb(0,0,0,0.5);
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+ 
+.right-content{
+    width: 40%;
+    text-align: center;
+    color: black;
+    position: fixed;
+    top: 40vh;
+    right: 10px;
+}
+.right-content img{
+    margin: 2rem;
+    height: 180px;
+}
+.card img{
+  height: 100px;
+  width: 100px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.right-content h1{
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.abilities{
+    width: 30%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.abilities .group{
+    background-color: #b74555;
+    color: white;
+    padding: 0.5rem;
+    font-size: 12px;
+    border-radius: 8px ;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.base-stat{
+    margin-top: 2rem;
 }
-
-.App-link {
-  color: #61dafb;
+.btn-group{
+    display: flex;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.btn-group button{
+    outline: none;
+    border: none;
+    width: 150px;
+    padding: 0.3rem 0;
+    margin: 1rem;
+    font-size: 17px;
+    font-size: bold;
+    color: white;
+    background-color: #b74555;
+    border-radius: 8px;
+    
+} 
