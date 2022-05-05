@@ -24,6 +24,7 @@ export function Home(){
         setNextUrl(res.data.next)
         setPrevUrl(res.data.previus)
         getPokemon(res.data.results)
+        console.log(res.data.results)
     }
     const getPokemon=async(res)=>{
         res.map(async(item)=>{
@@ -34,6 +35,7 @@ export function Home(){
                   state.sort((a,b)=>a.id>b.id?1:-1)
                 return state
             })
+            console.log(pokeData);
         })
     }
     useEffect(()=>{

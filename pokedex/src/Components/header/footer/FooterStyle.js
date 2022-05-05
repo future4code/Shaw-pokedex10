@@ -2,10 +2,9 @@ import styled from 'styled-components'
 
 export const MainContainer = styled.div`
 width: 100%;
-height: 5em;
-position: absolute;
-bottom: 0;
+height: 10vh;
 background-color: #f60000;
+margin-top: 1%;
 
 `
 

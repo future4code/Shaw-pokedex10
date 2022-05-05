@@ -1,27 +1,123 @@
+import axios from "axios";
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import { Pokedex } from "../../pages/Pokedex";
 // import { useNavigate } from "react-router-dom";
 
 
 export const CardPokemons =({ pokemon, loading, infoPokemon })=>{
     // const navigate = useNavigate()
-    return(
-        <>{loading ? (
-            <h1> Loading...</h1>
-          ) : (
-            pokemon.map((item) => {
-              return (
-                <>
-                  <div className="card" key={item.id} onClick={()=>infoPokemon(item)} >
-                    <h2>{item.id}</h2>
-                    <img src={item.sprites.front_default} alt="" />
-                    <h2>{item.name}</h2>
-                  </div>
-                </>
-              );
+    const onEnter = (id) =>{
+        localStorage.setItem('idAtual', id)
+    }
+
+    const [pokeData , setPokeData]=useState([])
+    const [url,setUrl]=useState("https://pokeapi.co/api/v2/pokemon/")
+    const [nextUrl,setNextUrl ]=useState()
+    const [prevUrl, setPrevUrl]=useState()
+    const [pokeDex,setPokeDex] = useState([])
+
+
+    const pokeFun=async()=>{
+        const res=await axios.get(url)
+        setNextUrl(res.data.next)
+        setPrevUrl(res.data.previus)
+        getPokemon(res.data.results)
+        console.log(res.data.results)
+    }
+    const getPokemon=async(res)=>{
+        res.map(async(item)=>{
+            const result=await  axios.get(item.url);
+            console.log(result.data);
+            setPokeData((state)=>{
+                state=[...state,result.data]
+                  state.sort((a,b)=>a.id>b.id?1:-1)
+                return state
             })
-          )}
-    
-          {/* <button onClick={()=>goToHome(navigate) }>Voltar</button> */}
-        </>
+            console.log(pokeData);
+        })
+    }
+
+    useEffect(()=>{
+      var page = localStorage.getItem('screen')
+      setPrevUrl(page)
+      let teste = localStorage.getItem('pokeDex')
+      if(teste === null){
+
+      }else{
+        if(teste.length === 0){
+
+        }else{ 
+          let set = localStorage.getItem('pokeDex')
+          let sett = JSON.parse(set)
+          setPokeDex(sett)
+          console.log(sett)
+        }
+      }
+    },[])
+
+    useEffect(()=>{
+      if(pokeDex.length === 0){
+
+      }else if (pokeDex !== []){ 
+        localStorage.setItem('pokeDex', JSON.stringify(pokeDex))
+        console.log(pokeDex)
+      }
+    },[pokeDex])
+
+    const onClickPegar = (id) =>{
+      
+      setPokeDex([...pokeDex, id])
+      console.log(id)
+    }
+
+    return(
+      <>
+        {(() => {
+        switch(prevUrl) {
+          case 'index':
+            return <>{loading ? (
+              <h1 className="loading"> Loading...</h1>
+            ) : (
+              pokemon.map((item) => {
+                return (
+                  <div className="card2" key={item.id} onClick={()=>infoPokemon(item)}  onMouseEnter={()=>onEnter(item.id)}>
+                    <div className="card">
+                      <h2>{item.id}</h2>
+                      <img src={item.sprites.front_default} alt="" />
+                      <h2>{item.name}</h2>
+                    </div>
+                      <button onClick={()=>onClickPegar(item)}>Pegar</button>
+                  </div>
+                );
+              })
+            )}
+      
+            {/* <button onClick={()=>goToHome(navigate) }>Voltar</button> */}
+          </>
+          case 'pokedex':
+            return <>{loading ? (
+              <h1 className="loading"> Loading...</h1>
+            ) : (
+              pokeDex.map((item) => {
+                return (
+                  <div className="card2" key={item.id} onClick={()=>infoPokemon(item)}  onMouseEnter={()=>onEnter(item.id)}>
+                    <div className="card">
+                      <h2>{item.id}</h2>
+                      <img src={item.sprites.front_default} alt="" />
+                      <h2>{item.name}</h2>
+                    </div>
+                      <button onClick={()=>onClickPegar(item)}>Pegar</button>
+                  </div>
+                );
+              })
+            )}
+      
+            {/* <button onClick={()=>goToHome(navigate) }>Voltar</button> */}
+          </>
+        }
+        })()}
+      </>
     )
 }

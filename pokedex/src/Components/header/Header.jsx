@@ -11,9 +11,7 @@ function Header(){
     const decide = () =>{
         if (page == 'index'){
             return <button onClick={()=>goToPokedex(navigate)}>Ver Pokedex</button>
-        } else if(page == 'detail') {
-            return <button onClick={()=>goToBack(navigate)}>Voltar</button>
-        } else{
+        } else if(page == 'pokedex') {
             return <button onClick={()=>goToHome(navigate)}>Voltar</button>
         }
     }
