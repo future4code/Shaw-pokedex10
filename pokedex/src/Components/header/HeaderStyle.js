@@ -8,6 +8,7 @@ height: 16vh;
 hr{
     border: 2px solid black;
 }
+background-color: #f60000;
 `
 
 export const DivLeft = styled.div`
