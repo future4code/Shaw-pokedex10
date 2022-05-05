@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Router from './route/Router';
+import {GlobalStates} from './context'
 
 
 function App() {
+  const [state, setState] = useState("index")
   return (
-   <div>
+   <GlobalStates.Provider value={[state, setState]}>
       <Router/>
-   </div>
+   </GlobalStates.Provider>
   );
 }
 

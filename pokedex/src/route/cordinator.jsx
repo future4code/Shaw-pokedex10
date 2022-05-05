@@ -1,15 +1,27 @@
+import { GlobalStates } from "../context"
+import { useContext } from "react";
+
 export const goToPokedex = (navigate) =>{
-    navigate('/pokedex')
+    navigate('/pokedex') 
+    localStorage.setItem('screen', 'pokedex')
   }
+
   export const goToHome = (navigate) =>{
     navigate('/')
+    localStorage.setItem('screen', 'index')
   }
   export const goToBack = (navigate) =>{
-    navigate(-1)
+    let page = localStorage.getItem('screen')
+     if (page == 'pokedex'){
+      navigate('/')
+     }else{
+      navigate('/pokedex')
+     }
   }
 
   export const goToDetail = (navigate) =>{
     navigate('/pokemon')
+    localStorage.setItem('screen', 'detail')
   }
 
   
