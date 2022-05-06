@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Pokedex } from "../../pages/Pokedex";
 // import { useNavigate } from "react-router-dom";
+import typeColors from '../Typecolor';
 
 
 export const CardPokemons =({ pokemon, loading, infoPokemon })=>{
@@ -82,12 +83,12 @@ export const CardPokemons =({ pokemon, loading, infoPokemon })=>{
             ) : (
               pokemon.map((item) => {
                 return (
-                  <div className="card2" key={item.id} onClick={()=>infoPokemon(item)}  onMouseEnter={()=>onEnter(item.id)}>
-                    <div className="card">
-                      <h2>{item.id}</h2>
-                      <img src={item.sprites.front_default} alt="" />
-                      <h2>{item.name}</h2>
+                  <div className="card" style={{ backgroundColor: typeColors[item.types[0].type.name] }} key={item.id} onClick={()=>infoPokemon(item)}  onMouseEnter={()=>onEnter(item.id)}>
+                    <div className="image">
+                      <img className="image-pokemon" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${item.id}.svg`} alt="" />
                     </div>
+                      <h2>{item.name}</h2>
+                      <h2>{item.types[0].type.name}</h2>
                       <button onClick={()=>onClickPegar(item)}>Pegar</button>
                   </div>
                 );
@@ -102,13 +103,13 @@ export const CardPokemons =({ pokemon, loading, infoPokemon })=>{
             ) : (
               pokeDex.map((item) => {
                 return (
-                  <div className="card2" key={item.id} onClick={()=>infoPokemon(item)}  onMouseEnter={()=>onEnter(item.id)}>
-                    <div className="card">
-                      <h2>{item.id}</h2>
-                      <img src={item.sprites.front_default} alt="" />
-                      <h2>{item.name}</h2>
+                  <div className="card" style={{ backgroundColor: typeColors[item.types[0].type.name] }} key={item.id} onClick={()=>infoPokemon(item)}  onMouseEnter={()=>onEnter(item.id)}>
+                    <div className="image">
+                      <img className="image-pokemon" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${item.id}.svg`} alt="" />
                     </div>
-                      <button onClick={()=>onClickPegar(item)}>Pegar</button>
+                      <h2>{item.name}</h2>
+                      <h2>{item.types[0].type.name}</h2>
+                      <button id="btncard" onClick={()=>onClickPegar(item)}>Pegar</button>
                   </div>
                 );
               })

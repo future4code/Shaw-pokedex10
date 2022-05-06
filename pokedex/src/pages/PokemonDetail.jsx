@@ -9,7 +9,8 @@ export function PokemonDetail({data}){
             (!data) ?"": (
                 <>
                     <h1>{data.name}</h1>
-                    <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`}alt="" />
+                    <img className="image-details" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`}alt="" />
+                    <img className="back-pokemon" src={data.sprites.back_default} alt="" />
                     <div className="abilities">
                         {
                             data.abilities.map(((poke)=>{
