@@ -3,9 +3,9 @@
 
 Nome dos integrantes: 
 
-##-[Bruno Siqueira](https://github.com/brunosp-49)
-##-[Michael Marcelino](https://github.com/michaeldouglasf)
-##- [Rani Sales](https://github.com/RaniSales)
+##[Bruno Siqueira](https://github.com/brunosp-49)
+##[Michael Marcelino](https://github.com/michaeldouglasf)
+## [Rani Sales](https://github.com/RaniSales)
 
 - Link do Surge: [Shaw-pokedex10](https://pokedex-grupo10.surge.sh/)
 
