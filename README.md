@@ -7,7 +7,7 @@ Nome dos integrantes:
 ## [Michael Marcelino](https://github.com/michaeldouglasf)
 ## [Rani Sales](https://github.com/RaniSales)
 
-- Link do Surge: [Shaw-pokedex10](https://pokedex-grupo10.surge.sh/)
+- Link do Surge: [link do projeto](https://pokedex-grupo10.surge.sh/)
 
 O que funciona:
 - Detalhes do pokemon
